@@ -1,0 +1,20 @@
+h1 {
+	font-family: Helvetica, Arial, Verdana, san-serif;
+	font-size: 24px;
+	color: red;
+}
+	
+th {
+	font-family: Helvetica, Arial, Verdana, san-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+td {
+	font-family: Times, Georgia, serif;
+	font-size: 12px;
+	text-align: center;
+}

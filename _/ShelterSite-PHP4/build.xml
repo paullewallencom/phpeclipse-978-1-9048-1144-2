@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Deployment Script" default="startPublish" basedir=".">
+	<target name="startPublish">
+		<antcall target="getFilesFromCVS" />
+		<antcall target="startFTP" />
+		<antcall target="cleanUp" />
+	</target>
+	<target name="getFilesFromCVS">
+	  <cvs cvsRoot=":local:/var/lib/cvsroot"
+	  	package="ShelterSite"
+	  	 dest="/tmp" />
+	</target>
+	<target name="startFTP">   
+		<ftp	server="127.0.0.1" 
+			userid="shuchow" 
+			password="TopSecretPassword!"
+			remotedir="/Library/WebServer/Documents/test/"
+			action="send">
+				<fileset dir="/tmp/ShelterSite" id="id">
+					<exclude name="**/build.xml*/" />
+					<exclude name="**/*.project" />
+				</fileset>
+		</ftp>
+	</target>
+	<target name="cleanUp">
+		<delete dir="/tmp/ShelterSite" />
+	</target>
+</project>
